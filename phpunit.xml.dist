@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        backupGlobals="false"
+        beStrictAboutTestsThatDoNotTestAnything="false"
+        colors="true"
+        processIsolation="false"
+        stopOnError="false"
+        stopOnFailure="false"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+        cacheDirectory=".phpunit.cache"
+        backupStaticProperties="false"
+>
+  <coverage>
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+    <report>
+      <clover outputFile="build/logs/clover.xml"/>
+      <html outputDirectory="build/coverage"/>
+    </report>
+  </coverage>
+  <testsuites>
+    <testsuite name="Unit">
+      <directory suffix="Test.php">./tests/Unit</directory>
+    </testsuite>
+  </testsuites>
+  <logging>
+    <testdoxText outputFile="build/testdox/executed.txt"/>
+    <junit outputFile="build/phpunit/phpunit.xml"/>
+  </logging>
+  <php>
+    <ini name="date.timezone" value="UTC"/>
+    <ini name="intl.default_locale" value="C.UTF-8"/>
+    <ini name="memory_limit" value="2048M"/>
+  </php>
+</phpunit>
